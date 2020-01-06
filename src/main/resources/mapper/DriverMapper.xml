@@ -6,6 +6,8 @@
     <result column="tel" jdbcType="VARCHAR" property="tel" />
     <result column="openid" jdbcType="VARCHAR" property="openid" />
     <result column="alipayid" jdbcType="VARCHAR" property="alipayid" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="car_id" jdbcType="INTEGER" property="carId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="idcard" jdbcType="VARCHAR" property="idcard" />
     <result column="cert_face" jdbcType="VARCHAR" property="certFace" />
@@ -71,7 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, tel, openid, alipayid, name, idcard, cert_face, cert_wrong, half_length
+    id, tel, openid, alipayid, password, car_id, name, idcard, cert_face, cert_wrong, 
+    half_length
   </sql>
   <select id="selectByExample" parameterType="top.tohsaka.onestep.entity.DriverExample" resultMap="BaseResultMap">
     select
@@ -105,13 +108,13 @@
   </delete>
   <insert id="insert" parameterType="top.tohsaka.onestep.entity.Driver">
     insert into driver (id, tel, openid, 
-      alipayid, name, idcard, 
-      cert_face, cert_wrong, half_length
-      )
+      alipayid, password, car_id, 
+      name, idcard, cert_face, 
+      cert_wrong, half_length)
     values (#{id,jdbcType=INTEGER}, #{tel,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, 
-      #{alipayid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
-      #{certFace,jdbcType=VARCHAR}, #{certWrong,jdbcType=VARCHAR}, #{halfLength,jdbcType=VARCHAR}
-      )
+      #{alipayid,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{carId,jdbcType=INTEGER}, 
+      #{name,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, #{certFace,jdbcType=VARCHAR}, 
+      #{certWrong,jdbcType=VARCHAR}, #{halfLength,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="top.tohsaka.onestep.entity.Driver">
     insert into driver
@@ -127,6 +130,12 @@
       </if>
       <if test="alipayid != null">
         alipayid,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="carId != null">
+        car_id,
       </if>
       <if test="name != null">
         name,
@@ -156,6 +165,12 @@
       </if>
       <if test="alipayid != null">
         #{alipayid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null">
+        #{carId,jdbcType=INTEGER},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -195,6 +210,12 @@
       <if test="record.alipayid != null">
         alipayid = #{record.alipayid,jdbcType=VARCHAR},
       </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carId != null">
+        car_id = #{record.carId,jdbcType=INTEGER},
+      </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
@@ -221,6 +242,8 @@
       tel = #{record.tel,jdbcType=VARCHAR},
       openid = #{record.openid,jdbcType=VARCHAR},
       alipayid = #{record.alipayid,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      car_id = #{record.carId,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       idcard = #{record.idcard,jdbcType=VARCHAR},
       cert_face = #{record.certFace,jdbcType=VARCHAR},
@@ -241,6 +264,12 @@
       </if>
       <if test="alipayid != null">
         alipayid = #{alipayid,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="carId != null">
+        car_id = #{carId,jdbcType=INTEGER},
       </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -265,6 +294,8 @@
     set tel = #{tel,jdbcType=VARCHAR},
       openid = #{openid,jdbcType=VARCHAR},
       alipayid = #{alipayid,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      car_id = #{carId,jdbcType=INTEGER},
       name = #{name,jdbcType=VARCHAR},
       idcard = #{idcard,jdbcType=VARCHAR},
       cert_face = #{certFace,jdbcType=VARCHAR},

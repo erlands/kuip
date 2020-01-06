@@ -1,6 +1,12 @@
 package top.tohsaka.onestep.entity;
 
-public class Driver {
+import java.io.Serializable;
+
+/**
+ * 司机
+ */
+public class Driver implements Serializable {
+    private static final long serialVersionUID = 1289277295905291950L;
     private Integer id;
 
     private String tel;
@@ -8,6 +14,10 @@ public class Driver {
     private String openid;
 
     private String alipayid;
+
+    private String password;
+
+    private Integer carId;
 
     private String name;
 
@@ -49,6 +59,22 @@ public class Driver {
 
     public void setAlipayid(String alipayid) {
         this.alipayid = alipayid == null ? null : alipayid.trim();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
+    public Integer getCarId() {
+        return carId;
+    }
+
+    public void setCarId(Integer carId) {
+        this.carId = carId;
     }
 
     public String getName() {

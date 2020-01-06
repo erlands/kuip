@@ -1,4 +1,4 @@
-package top.tohsaka.onestep.controller;
+package top.tohsaka.onestep.controller.front;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

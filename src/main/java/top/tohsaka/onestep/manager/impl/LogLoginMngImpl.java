@@ -3,30 +3,30 @@ package top.tohsaka.onestep.manager.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import top.tohsaka.onestep.entity.Station;
-import top.tohsaka.onestep.manager.StationMng;
-import top.tohsaka.onestep.mapper.StationMapper;
+import top.tohsaka.onestep.entity.LogLogin;
+import top.tohsaka.onestep.manager.LogLoginMng;
+import top.tohsaka.onestep.mapper.LogLoginMapper;
 
 @Service
-@Transactional
-public class StationMngImpl implements StationMng {
+@Transactional(readOnly = true)
+public class LogLoginMngImpl implements LogLoginMng {
     @Autowired
-    private StationMapper mapper;
+    private LogLoginMapper mapper;
 
     @Override
-    public Station save(Station bean) {
+    public LogLogin save(LogLogin bean) {
         mapper.insert(bean);
         return bean;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Station get(Number id) {
+    public LogLogin get(Number id) {
         return mapper.selectByPrimaryKey(id);
     }
 
     @Override
-    public int update(Station bean) {
+    public int update(LogLogin bean) {
         return mapper.updateByPrimaryKey(bean);
     }
 

@@ -1,8 +1,13 @@
 package top.tohsaka.onestep.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Station {
+/**
+ * 车站
+ */
+public class Station implements Serializable {
+    private static final long serialVersionUID = 2705675722182237175L;
     private Integer id;
 
     private String name;

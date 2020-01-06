@@ -1,6 +1,12 @@
 package top.tohsaka.onestep.entity;
 
-public class Car {
+import java.io.Serializable;
+
+/**
+ * 车辆
+ */
+public class Car implements Serializable {
+    private static final long serialVersionUID = -1569706920753786211L;
     private Integer id;
 
     private Integer lineId;

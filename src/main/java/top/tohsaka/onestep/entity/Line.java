@@ -1,8 +1,13 @@
 package top.tohsaka.onestep.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Line {
+/**
+ * 路线
+ */
+public class Line implements Serializable {
+    private static final long serialVersionUID = 7143676078753961799L;
     private Integer id;
 
     private Integer start;

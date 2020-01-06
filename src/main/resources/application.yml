@@ -4,6 +4,14 @@ spring:
     password: 123456
     url: jdbc:mysql:///one_step?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false&serverTimezone=UTC&useSSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: top.tohsaka.onestep.entity
+login:
+  timeout:
+    admin: 1800
+    driver: 86400
+    user: 86400
